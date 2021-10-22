@@ -1,7 +1,6 @@
 package com.moose.work.data
 
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 
 object Data {
 
