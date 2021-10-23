@@ -8,5 +8,6 @@ data class User(
     @PrimaryKey
     val number: Int,
     val name: String,
-    val image: String
+    val image: String,
+    var description: String = ""
 )
