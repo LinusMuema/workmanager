@@ -4,7 +4,7 @@ import kotlinx.coroutines.delay
 
 object Data {
 
-    private val names = arrayListOf("John Doe", "Linus Moose", "Peter Kay", "Dankat Dennis", "Mick Jagger", "Jane Doe", "Lorem Ipsum", "Jenny clyde", "Missy clark", "Kate Hudson")
+    private val names = arrayListOf("John Doe", "Linus Moose", "Peter Kay", "Dankat Dennis", "Mick Jagger", "Jane Doe", "Lorem Ipsum", "Jenny clyde", "Sandra Kuria", "Missy clark", "Kate Hudson")
 
     suspend fun getUser(): User {
         delay(1000L)

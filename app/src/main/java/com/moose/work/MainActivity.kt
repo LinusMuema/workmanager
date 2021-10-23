@@ -1,7 +1,6 @@
 package com.moose.work
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -13,21 +12,16 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.work.*
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
 import com.moose.work.data.User
 import com.moose.work.local.AppDatabase
 import com.moose.work.ui.theme.WorkTheme
-import com.moose.work.work.ExampleWork
-import com.moose.work.work.UsersWork
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,32 +33,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-
-        // start our Job
-        startWork()
-    }
-
-    private fun startWork() {
-
-        // get the instance
-        val manager = WorkManager.getInstance(application)
-
-        // create the constraints
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .setRequiresBatteryNotLow(true)
-            .build()
-
-        // create the data
-        val data = workDataOf("name" to "LinusMoose", "age" to 20)
-
-        // create the request
-        val request = OneTimeWorkRequestBuilder<UsersWork>()
-            .setConstraints(constraints)
-            .setInputData(data)
-            .build()
-
-        manager.enqueue(request)
     }
 }
 
